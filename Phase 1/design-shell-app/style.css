@@ -1,0 +1,86 @@
+/* 
+    Name: Subash Mainali
+    Project: desing shell app
+    date : 07/29/2021
+    This file is a reusable CSS files that applies styling to header, footer, paragaph,and div
+*/
+
+body {
+    background-image: url("https://media.gettyimages.com/photos/full-frame-shot-of-star-field-at-nightlucknowcanada-picture-id1288714121?s=2048x2048");
+    background-repeat: no-repeat;
+    /* background-size: contain; */
+    background-blend-mode:lighten ;
+    background-color:#FEC6BE;
+}
+
+.container {
+    background: #BEF6FE;
+    margin: auto;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.main{
+    border: 2px solid salmon;
+    padding: 5px;
+    margin: 5px 0px 5px 0px;
+    background-color: #FFE28F;
+
+}
+
+
+nav {
+    border: 2px solid salmon;
+    text-align: center;
+  
+}
+
+nav ul {
+    background-color: #FFE28F;
+    /* padding: 5px; */
+    margin: 0px;
+}
+nav ul li{
+
+    list-style-type: none;
+    display: inline-block;
+    margin: 5px 10px;
+
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0px;
+    padding: 5px;
+}
+
+a:hover {
+    background-color: #2F4BD0;
+    color: aquamarine;
+  }
+
+h3 {
+    color: ghostwhite
+}
+
+p {
+    color: #274DD8;
+}
+
+
+header {
+    border: 2px solid salmon;
+    margin: 0px 0px 5px 0px;
+    background-color: #FFD253;
+    text-align: center;
+    font-size: 20px;
+}
+
+footer {
+    border: 2px solid salmon;
+    margin: 0px 0px 5px 0px;
+    background-color: #FFD253;
+    text-align: center;
+    font-size: 20px;
+}
