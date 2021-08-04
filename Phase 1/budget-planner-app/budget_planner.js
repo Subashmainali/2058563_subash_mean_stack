@@ -1,8 +1,5 @@
 function addBudget(){
     console.log("adding budget");
-    // let budgetInfo = document.getElementById("budgetAdded");
-    // budgetInfo.setAttribute('visibility', 'visible');
-    console.log(sessionStorage.getItem("projectList"));
     storeData();
     alert("Budget was Added");
 
