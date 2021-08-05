@@ -1,0 +1,218 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <title>Simply Blogging</title>
+
+    <style>
+        .card{
+            /* width: 100%; */
+            margin-bottom: 10px;
+            
+        }
+        .card-img-top {
+            width: 100%;
+            height: 30vh;
+            object-fit: cover;
+        }
+        .card-body{
+            width: 100%;
+            height: 30vh;
+            overflow-y: auto;
+
+        }
+        .inputDiv{
+            /* background-color:rgb(84, 105, 240);
+            background-color: ; 
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px; */
+            font-weight: bold;
+            
+        }
+        .inputDiv>.row {
+            margin-bottom: 5px;
+           
+        }
+
+        nav{
+            
+            font-family: 'Poppins';
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 6vh;
+            background-color:rgb(253, 210, 160);
+    
+
+        }
+
+        .nav-links{
+            display: flex;
+            
+            justify-content: space-around;
+            align-items: center;
+            width: 30%;
+            /* background-color: red; */
+            
+           
+          
+        }
+
+        .nav-links a{
+            color: #424642;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .nav-links li{
+            list-style: none;
+        }
+
+        .logo{
+            color: #424642;
+            text-transform: uppercase;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        #formContainer{
+            background-color: #F3F4ED ;
+            color: #536162;
+        }
+
+
+    </style>
+
+
+
+</head>
+<body>
+    <section>
+        <nav>
+            <div class="logo">
+                <h4>Simply Blogging</h4>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </nav>
+
+    </section>
+
+    <section class="container-fluid py-5 text-center" id="formContainer">
+        <div class="row py-lg-5">
+          <div class="col-md-8 mx-auto">
+            <h3 class="fw-light">Add to the collection of blogs.</h3>
+            <!-- <p class="lead text-muted">Add to the collection of blogs.</p> -->
+            <div class="inputDiv">
+                <div class="row">
+                    <div class="col-lg-2 col-xs-12"><label>Title</label></div>
+                    <div class="col-lg-5 col-xs-12"><input type="text" name="title" id="title"  class="form-control"  placeholder="Title"  required/></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2 col-xs-12"><label>Article</label></div>
+                    <div class="col-lg-10 col-xs-12"> <textarea id="article" name="article" rows="5" cols="50" class="form-control" placeholder="Article" required></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2 col-xs-12"><label>Image URL</label></div>
+                    <div class="col-lg-5 col-xs-12"><input type="url" name="imageUrl" id="imageUrl" class="form-control" placeholder="Image URL" /></div>
+                </div>
+
+            </div>
+            
+            <input type="submit" class="btn btn-primary" value="Add Blog" onclick="addBlog()">
+          
+            
+          </div>
+        </div>
+      </section>
+    
+
+
+    <div class="container-fluid bg-light">
+      
+        <div class="container" id="blogContent">
+            <div class="row" id="blogRow">
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script>
+        function addBlog(){
+            console.log("adding bloog");
+            let blogRow = document.getElementById('blogRow');
+            let title   = document.getElementById('title').value;
+            let article = document.getElementById('article').value;
+            let imageUrl = document.getElementById('imageUrl').value;
+            console.log(typeof title);
+            // console.log('this is a title: ' + title);
+            if(title == "" || article == ""){
+                alert("Please enter title or article");
+                return;
+            }
+
+            console.log(title);
+            console.log(article);
+            //console.log(imageUrl);
+
+            alert('Adding blog');
+
+            let blogContainer = document.createElement('div');
+            blogContainer.setAttribute('class', 'col-12 col-md-4');
+
+            blogCard = document.createElement('div');
+            blogCard.setAttribute('class', 'card bg-dark text-white');
+
+            let imgTag = document.createElement('img');
+            // let imgAttr = {'src': imageUrl, 'class': 'card-image-top'};
+            imgTag.setAttribute('src', imageUrl);
+            imgTag.setAttribute('class', 'card-img-top');
+            
+
+            let cardBody = document.createElement('div');
+            cardBody.setAttribute('class','card-body');
+        
+            let cardTitle = document.createElement('h5');
+            cardTitle.setAttribute('class', 'card-title');
+            cardTitle.innerHTML = title;
+
+            let cardText = document.createElement('p');
+            cardText.setAttribute('class', 'card-text');
+            cardText.innerHTML = article;
+
+            cardBody.appendChild(cardTitle);
+            cardBody.appendChild(cardText);
+
+            blogCard.appendChild(imgTag);
+            blogCard.appendChild(cardBody);
+
+            blogContainer.appendChild(blogCard);
+
+            blogRow.appendChild(blogContainer);
+
+            
+        }
+
+    </script>
+
+    
+</body>
+</html>
