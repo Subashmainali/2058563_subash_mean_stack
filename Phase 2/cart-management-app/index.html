@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- JavaScript Bundle with Popper -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+
+    <title>Cart Manager</title>
+
+    <style>
+        body {
+            font-family: 'Popper';
+        }
+
+        header {
+            background-color: rgb(74, 74, 153);
+            color: white;
+            height: 8vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* padding: 5px;    */
+            border-radius: 5px;
+        }
+
+        /* header div{
+            display: flex;
+            right: 5%;
+        } */
+
+        .cartDiv {
+            background-color: rgb(166, 117, 231);
+            font-size: 20px;
+            color: white;
+            height: 5vh;
+            margin-top: 5px;
+            padding: 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 5px;
+
+        }
+        .card{
+            /* width: 100%; */
+            margin-bottom: 10px;
+            
+        }
+        .card-img-top {
+            width: 100%;
+            height: 20vh;
+            object-fit: cover;
+        }
+        .card-body{
+            width: 100%;
+            height: 20vh;
+            overflow-y: auto;
+
+        }
+        #mainContent{
+            margin-top: 5px;
+        }
+
+        /* .cartSizeDiv{
+            position: ;
+
+        } */
+        .cartSizeDiv{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cartSizeValueDiv{
+
+            color: white;
+            /* border: 2px solid black; */
+            background-color: rgb(184, 59, 59);
+            padding: 5px;
+            /* width: 20px; */
+            border-radius: 2px;
+            margin-left: 5px;
+        }
+        /* #itemContainer{
+            background-color: rgb(248, 251, 252);
+            background-color: red;
+            margin-top: 5px;
+        } */
+
+        /* .cartSizeDiv{
+            display: flex;
+            justify-content: left;
+
+        }
+
+        .checkOutDiv{
+            display: flex;
+            justify-content:right;
+        } */
+    </style>
+
+</head>
+
+<body>
+
+    <div class="containerDiv">
+        <header>
+            <h3>Shopping Cart Manager</h3>
+
+        </header>
+
+        <section>
+            <div class="cartDiv">
+                <div class="cartSizeDiv">
+                    <i class="fas fa-shopping-cart fa-lg" ></i>
+                    <div class="cartSizeValueDiv" id="cartItemsCount">
+                        0
+                    </div>
+                </div>
+
+                <div class="checkOutDiv">
+                    <a href="checkout.html">checkout</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container-fluid bg-light" > 
+            <div class="container bg-light" id="mainContent">
+
+                <div class="row" id="blogRow">
+                    <div class="col-12 col-md-4">
+                        <div class="card bg-dark text-white"><img
+                                src="./images/headphone.jpeg"
+                                class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title"> Headphone  </h5>
+                                <h5>$160</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, voluptate.</p>
+
+                            </div>
+                      
+                            <input type="number" class="form-control"  id="headphone" placeholder="quantity" min="1" style="margin-top: 5px;">
+                            <button type="button" class="btn btn-outline-info" style="margin: 5px;" onclick="addToCart( 'headphone', 'Headphone', '160')">Add Item</button>
+                            
+                        </div>
+                       
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="card bg-dark text-white"><img
+                                src="./images/camera.jpeg"
+                                class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title"> Camera</h5>
+                                <h5>$800</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, voluptate.</p>
+
+                            </div>
+                      
+                            <input type="number" class="form-control"  id="camera" placeholder="quantity" min="1" style="margin-top: 5px;">
+                            <button type="button" class="btn btn-outline-info" style="margin: 5px;" onclick="addToCart( 'camera', 'Camera', '800')">Add Item</button>
+                        </div>
+                       
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card bg-dark text-white"><img
+                                src="./images/camera2.jpeg"
+                                class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title"> Camera2</h5>
+                                <h5>$300</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, voluptate.</p>
+
+                            </div>
+                      
+                            <input type="number" class="form-control"  id="camera2" placeholder="quantity" min="1" style="margin-top: 5px;">
+                            <button type="button" class="btn btn-outline-info" style="margin: 5px;" onclick="addToCart( 'camera2', 'Camera2', '300')">Add Item</button>
+                        </div>
+                       
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card bg-dark text-white"><img
+                                src="./images/controller.jpeg"
+                                class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title"> Controller</h5>
+                                <h5>$60</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, voluptate.</p>
+
+                            </div>
+                      
+                            <input type="number" class="form-control"  id="controller" placeholder="quantity" min="1" style="margin-top: 5px;">
+                            <button type="button" class="btn btn-outline-info" style="margin: 5px;" onclick="addToCart( 'controller', 'Controller', '60')">Add Item</button>
+                        </div>
+                       
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card bg-dark text-white"><img
+                                src="./images/iphone.jpeg"
+                                class="card-img-top">
+                            <div class="card-body">
+                                <!-- <input type="text" name="" id="iphone" value="900" style="display: none;"> -->
+                                <h5 class="card-title" > Iphone</h5>
+                                <h5>$900</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, voluptate.</p>
+
+                            </div>
+                      
+                            <input type="number" class="form-control"  id="iphone" placeholder="quantity" min="1" style="margin-top: 5px;">
+                            <button type="button" class="btn btn-outline-info" style="margin: 5px;" onclick="addToCart( 'iphone', 'Iphone', '900')">Add Item</button>
+                        </div>
+                       
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+    <script src="./cart_manger.js"></script>
+
+</body>
+
+</html>
