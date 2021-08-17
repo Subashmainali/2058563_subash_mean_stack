@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+    background-color:  rgb(81, 4, 153);
+}
+.container {
+    background-color: rgb(174, 130, 216);
+    border-radius: 5px;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+}
+
+div{
+    color: rgb(253, 253, 253);
+}
+
+
+.form-group{
+    margin-bottom: 5px;
+}
+
+
+
+
