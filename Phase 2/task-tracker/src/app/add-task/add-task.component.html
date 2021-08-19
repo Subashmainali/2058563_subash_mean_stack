@@ -1,0 +1,35 @@
+<div class="addTaskContainer">
+    <div class="addTaskDiv">
+        <div class="todoTaskHeader">
+            <h2>To-do tasks</h2>
+        </div>
+        <form [formGroup]="taskRef" (ngSubmit)="addTask()">
+            <mat-form-field appearance="fill">
+                <mat-label>Id</mat-label>
+                <input matInput type="number" formControlName="id" >
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Task</mat-label>
+                <textarea matInput formControlName="task"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Deadline</mat-label>
+                <input matInput type="date" formControlName="deadline">
+            </mat-form-field>
+            <div class="buttonDiv">
+                <button mat-raised-button color="primary" type="submit" [disabled]="taskRef.invalid">Submit</button>
+                <button mat-raised-button color="accent"  type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,41 @@
+.addTaskContainer{
+    background-color: rgb(84, 152, 230);
+    height: 100vh;
+    width: 100%;
+    margin: 5px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;   
+}
+
+.addTaskDiv{
+    background-color: rgb(230, 234, 240);
+    height: 50vh;
+    width: 80%;
+    border-radius: 5px;
+    margin: 5px;
+    /* display: flex;
+    justify-content: center; */
+}
+.todoTaskHeader{
+    display: flex;
+    justify-content: center;
+    margin: 5px 0 0 0;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonDiv button{
+    margin: 0px 5px;
+}
+
+mat-form-field {
+    width: 80%;
+}

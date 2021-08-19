@@ -1,0 +1,14 @@
+.displayDiv{
+    background-color: rgb(78, 204, 162);
+    /* width:50%; */
+    height: 100vh;
+    margin: 5px;
+    /* display: flex; */
+    /* align-items: center; */
+}
+
+
+table {
+    width: 100%;
+    
+}
