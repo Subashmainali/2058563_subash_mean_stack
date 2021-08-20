@@ -1,0 +1,85 @@
+[
+    {"questionId":"001", "question":"A type of instruction that produce several lines of machine language code is a?",
+    "ans": {"ans":"Macro",
+            "opt1":"Assemble",
+            "opt2":"Address",
+            "opt3":"Mnemonic",
+            "opt4":"Macro"
+            }
+    },
+
+    {"questionId":"002", "question":"The main function of the CPU is to perform arithmetic and logical operations on data taken from ____ ?",
+        "ans": {"ans":"Main memory",
+                "opt1":"Permanent memory",
+                "opt2":"Control unit",
+                "opt3":"Main memory",
+                "opt4":"CPU"
+                }
+    },
+    {"questionId":"003", "question":"The process of performing corrections on the existing data is",
+        "ans": {"ans":"Editing",
+                "opt1":"Merging",
+                "opt2":"Sorting",
+                "opt3":"Filtering",
+                "opt4":"Editing"
+                }
+    },
+    {"questionId":"004", "question":"Which language is used for creating Web Pages?",
+        "ans": {"ans":"HTML",
+                "opt1":"PASCAL",
+                "opt2":"C",
+                "opt3":"HTML",
+                "opt4":"JavaSript"
+                }
+    },
+    {"questionId":"005", "question":"In a class data members are also called as ___",
+        "ans": {"ans":"Attributes",
+                "opt1":"Abstracts",
+                "opt2":"Attributes",
+                "opt3":"Properties",
+                "opt4":"Dimensions"
+                }
+    },
+    {"questionId":"006", "question":"Which of the following is a derived data type?",
+        "ans": {"ans":"Array",
+                "opt1":"Array",
+                "opt2":"Double",
+                "opt3":"Float",
+                "opt4":"Union"
+                }
+    },
+    {"questionId":"007", "question":"what is the answer? opt2",
+        "ans": {"ans":"opt2",
+                "opt1":"opt1",
+                "opt2":"opt2",
+                "opt3":"opt3",
+                "opt4":"opt4"
+                }
+    },
+    {"questionId":"008", "question":"what is the answer? opt1",
+        "ans": {"ans":"opt1",
+                "opt1":"opt1",
+                "opt2":"opt2",
+                "opt3":"opt3",
+                "opt4":"opt4"
+                }
+    },
+    {"questionId":"009", "question":"what is the answer? opt4",
+        "ans": {"ans":"opt4",
+                "opt1":"opt1",
+                "opt2":"opt2",
+                "opt3":"opt3",
+                "opt4":"opt4"
+                }
+    },
+    {"questionId":"010", "question":"what is the answer? opt3",
+        "ans": {"ans":"opt3",
+                "opt1":"opt1",
+                "opt2":"opt2",
+                "opt3":"opt3",
+                "opt4":"opt4"
+                }
+    }
+
+
+]

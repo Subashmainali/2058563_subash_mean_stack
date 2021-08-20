@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="testDiv" *ngIf="!f">
+
+        <form [formGroup]="quizRef" (ngSubmit)="displayResult()">
+            <div class="questionsDiv" *ngFor="let q of questionList">
+                <!-- {{q.question}} -->
+                <!-- <app-question [question]=q ></app-question> -->
+                <div class="questionContainer">
+                    <label id="radio-group-label">{{q.question}}</label>
+                    <mat-radio-group aria-labelledby="group-label" class="radio-group" formControlName={{q.questionId}}>
+    
+                        <!-- {{q.ans.opt2}} -->
+                        <mat-radio-button class="radio-button" value={{q.ans.opt1}} >
+                            {{q.ans.opt1}}
+                        </mat-radio-button>
+    
+                        <mat-radio-button class="radio-button" value={{q.ans.opt2}}  >
+                            {{q.ans.opt2}}
+                        </mat-radio-button>
+                        <mat-radio-button class="radio-button" value={{q.ans.opt3}} >
+                            {{q.ans.opt3}}
+                        </mat-radio-button>
+                        <mat-radio-button class="radio-button" value={{q.ans.opt4}} >
+                            {{q.ans.opt4}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                    <!-- <div>Your favorite season is: {{selectedAnswer}}</div> -->
+            
+                </div>
+    
+            </div>
+    
+            <button  type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="resultDiv" *ngIf="f">
+    <!-- <form [formGroup]="quizRef" > -->
+        <button  (click)="goBack()">Try Again</button>
+        <div class="testResult">
+           <!-- <h1>{{correctAnswer}} / {{totalQuestion}}</h1> -->
+           <div *ngIf="pass" style="color: green;">Result {{correctAnswer}}/{{totalQuestion}}: Pass</div>
+           <div *ngIf="!pass" style="color: red;">Result {{correctAnswer}}/{{totalQuestion}}: Fail!</div>
+        </div>
+
+        <div class="resultOutput">
+
+            <!-- <div *ngFor="let item of choiceList | keyvalue">
+                Key: <b>{{item.key}}</b> and Value: <b>{{item.value}}</b>
+            </div> -->
+            
+            <div class="questionsDiv" *ngFor="let q of questionList">
+                <h4>You selected: {{choiceList[q.questionId]}}</h4>
+                <div class="questionContainer">
+                    <label id="radio-group-label">{{q.question}}</label>
+                    <mat-radio-group aria-labelledby="group-label" class="radio-group">
+        
+                        <!-- {{q.ans.opt2}} -->
+                        <mat-radio-button class="radio-button" value={{q.ans.opt1}} [style.background-color]="q.ans.ans == q.ans.opt1 ? 'rgb(27, 143, 27)':'rgb(138, 9, 9, 0.5)'" >
+                            {{q.ans.opt1}}
+                        </mat-radio-button>
+        
+                        <mat-radio-button class="radio-button" value={{q.ans.opt2}} [style.background-color]="q.ans.ans == q.ans.opt2 ? 'rgb(27, 143, 27)':'rgb(138, 9, 9, 0.5)'">
+                            {{q.ans.opt2}}
+                        </mat-radio-button>
+                        <mat-radio-button class="radio-button" value={{q.ans.opt3}} [style.background-color]="q.ans.ans == q.ans.opt3 ? 'rgb(27, 143, 27)':'rgb(138, 9, 9, 0.5)'">
+                            {{q.ans.opt3}}
+                        </mat-radio-button>
+                        <mat-radio-button class="radio-button" value={{q.ans.opt4}} [style.background-color]="q.ans.ans == q.ans.opt4 ? 'rgb(27, 143, 27)':'rgb(138, 9, 9, 0.5)'">
+                            {{q.ans.opt4}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+        
+            </div>
+        </div>
+        
+
+    </div>
+
+
+
+    
+</div>
