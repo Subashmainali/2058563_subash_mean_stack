@@ -1,0 +1,283 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Client</title>
+
+    <style>
+        body {
+            background-color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #0072b1;
+            min-width: 80%;
+            height: 50rem;
+            border-radius: 1rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            /* display: flex;
+            flex-direction: column;
+            justify-content: center; */
+
+        }
+
+        .header {
+            height: 10%;
+            min-width: 100%;
+
+        }
+
+        .header>h2 {
+            height: 100%;
+            /* padding: 1rem 0rem; */
+            margin: 0;
+            min-width: 100%;
+            /* background-color: aquamarine; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chatBox {
+            background-color: rgb(100, 106, 110);;
+            height: 90%;
+            min-width: 100%;
+            border-radius: 0 0 1rem 1rem;
+            overflow: hidden;
+            /* background-color: rgb(100, 106, 110);
+            position: absolute;
+            min-height: 100%;
+            min-width: 100%;
+            border-radius: 0 0 1rem 1rem;  */
+
+        }
+
+
+
+
+        .displayMessageDiv{
+            background-color: #698da0;
+            padding: 1rem;
+            width: 100%;
+            min-height: 90%;
+            max-height: 90%;
+            /* max-height: 90%; */
+            /* border: 1px solid red; */
+            box-sizing: border-box;
+            justify-content: space-between;
+            overflow: scroll;
+            
+        }
+        .sendMessageDiv{
+            background-color:#0072b1; 
+            width: 100%;
+            height: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-y: scroll;
+
+            
+            
+        }
+
+        .form{
+            padding: .5rem;
+          
+            /* height: 100%; */
+            background-color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(82, 88, 146, 0.651);
+            border-radius: 100vh;
+            
+        }
+        .form-input{
+            width: 25rem;
+            /* width: 50rem; */
+            display: flex;
+            flex-grow: inherit;
+            font-weight: 800px;
+            font-size: 1rem;
+            padding: 1em;
+            letter-spacing: 1px;
+            border: 1px solid red;
+            border-radius: 100vh; 
+            
+        }
+
+        .form-input-name{
+            width: 10rem;
+        }
+
+        .form-input::placeholder{
+            text-transform: uppercase;
+        }
+
+        .form-botton{
+            background-color: #0072b1;
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            text-decoration: none;
+            /* display: inline-block; */
+            font-size: 1rem;
+            border-radius: 100vh;
+            font-weight: 700;
+            cursor:pointer;
+            transition: ease-in 100ms;
+        }
+
+        .form-botton:hover{
+            background-color: #0282c7;
+
+        }
+    
+        .form-input:focus{
+            outline: none;
+        }
+
+        .serveMessageDiv {
+            background-color: rgb(206, 172, 79);
+            border: 1px solid rgb(163, 58, 58);
+            padding: 1rem;
+            margin-bottom: .5rem;
+            border-radius: 1rem 1rem 1rem 0rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            width: fit-content;
+            min-width: 30%;
+            max-width: 70%;
+        }
+        .clientMessageDiv{
+            background-color: rgb(67, 207, 97);
+            border: 1px solid rgb(163, 58, 58);
+            padding: 1rem;
+            margin-bottom: .5rem;
+            margin-left: auto;
+            border-radius: 1rem 1rem 0rem 1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            width: fit-content;
+            min-width: 30%;
+            max-width: 70%;
+            
+            /* display: flex;
+            justify-content: end; */
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Chatting With socket</h2>
+        </div>
+        <div class="chatBox">
+            <div class="displayMessageDiv" id="messageBox">
+                <!-- <div class="clientMessageDiv"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minus expedita magnam id minima eos, est illum molestias quo, odit nisi veritatis voluptate autem ipsa labore recusandae consequuntur obcaecati hic?</div>
+                <div class="serveMessageDiv">Server message</div>
+                <div class="clientMessageDiv">Messgae will display here</div>
+                <div class="clientMessageDiv">Messgae will display here</div>
+                <div class="serveMessageDiv">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, molestiae aut illum praesentium vel ipsa quaerat mollitia placeat iusto eum cumque rerum vero quas incidunt amet blanditiis impedit doloremque ipsum.</div> -->
+            </div>
+            <div class="sendMessageDiv">
+                <form class="form" onsubmit="return sendMessgae(event)">
+                    <div class="form-item">
+                        <input class="form-input form-input-name" id="name" type="text" 
+                        autocomplete="off"
+                        placeholder="name"
+                        aria-label="name"
+                         />
+                    </div>
+                    <div class="form-item">
+                        <input class="form-input" id="msg" type="text" 
+                        autocomplete="off"
+                        placeholder="message"
+                        aria-label="message"
+                        required
+                         />
+                    </div>
+                    <button class="form-botton" type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/JavaScript">
+        var socket = io();
+
+        socket.on("startup",(msg)=> {
+            ///let div = document.createElement("div");
+            //div.setAttribute('class','serveMessageDiv');
+            console.log(msg);
+            
+            const message = document.createElement('div')  //('div');
+            message.className = "serveMessageDiv";
+            //console.log(message);
+            //console.log("connected to the server");
+            message.innerHTML = msg;
+            document.getElementById("messageBox").appendChild(message);
+        });
+
+        function sendMessgae(e){
+            e.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let msg = document.getElementById("msg").value;
+            document.getElementById("msg").value = "";
+            if(name === "") {
+                name="Ô-Ô";            
+            }
+
+            // add message to the chatbox
+            const cMessage = document.createElement('div')  
+            cMessage.className = "clientMessageDiv";
+            cMessage.innerHTML = name + ": " + msg;;
+            document.getElementById("messageBox").appendChild(cMessage);
+        
+           
+
+            // send message to the server
+            let msgObjet = {name:name,msg:msg};
+            socket.emit('message',msgObjet);
+
+            return false;
+        }
+
+        // recieve message from the server when you send message
+        socket.on('message',(msg)=> {
+            setTimeout(function(){
+                console.log("recieving msg from server");
+                console.log(msg);
+            
+                const message = document.createElement('div');
+                message.className = "serveMessageDiv";
+                message.innerHTML = msg;
+                document.getElementById("messageBox").appendChild(message);
+                //window.scrollTo(0, );
+
+            }, 500);
+        });
+       
+            
+       
+    </script>
+</body>
+
+</html>
