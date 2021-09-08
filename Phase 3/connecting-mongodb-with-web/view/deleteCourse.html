@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Course</title>
+    <style>
+        html{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+        }
+        div {
+            margin: .5rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Update Course</h1>
+
+    <form onsubmit="return updateCourse(event)">
+        <div>
+            <label for='_id'>Course ID:</label>
+            <input type='number' id='_id' name='_id' required><br>
+        </div>
+        <div>
+            <input type="submit" value="Delete Course">
+            <input type="reset" value="reset">
+        </div>
+    </form>
+    <div id="info"></div>
+    <a href="/home">Home</a>
+
+    <script type="text/JavaScript">
+        function updateCourse(event){
+            event.preventDefault();
+            
+            let data =  {_id : document.getElementById('_id').value}
+            document.getElementById('_id').value = "";
+
+            //console.log(JOSN.);
+            fetch("http://localhost:9090/api/deleteCourse", {
+                "method": "DELETE",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": JSON.stringify(data)
+                }).then(response=>response.json())
+                .then(data=>{  console.log(data.msg); document.getElementById("info").innerHTML = data.msg})
+                .catch(err => {
+                console.error(err);
+            });
+            
+            return false;
+        }
+    </script>
+</body>
+</html>

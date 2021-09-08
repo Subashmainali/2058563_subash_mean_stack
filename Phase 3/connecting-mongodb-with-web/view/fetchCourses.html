@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch Courses</title>
+</head>
+<body>
+    <h1>List Of Courses</h1>
+    <div>
+        <table id="table" border="1">
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+
+
+        </table>
+    </div>
+
+    <a href="/home">Home</a>
+
+    <script type="text/JavaScript">
+        fetch("http://localhost:9090/api/getCourses", {
+            "method": "GET",
+            "headers": {
+                "Content-Type": "application/json"
+            }
+            })
+            .then(response=> response.json())
+            .then(result => { 
+                 result.forEach(element => {
+                    let row = document.createElement("tr");
+                    row.innerHTML = `<td> ${element._id}</td> <td> ${element.cname}</td> <td> ${element.description}</td> <td> ${element.amount}</td>`
+                    document.getElementById('table').appendChild(row);
+                 });
+                })
+            .catch(err => {
+            console.error(err);
+        });
+    </script>
+    
+</body>
+</html>
