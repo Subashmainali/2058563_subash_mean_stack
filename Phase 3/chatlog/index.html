@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Log</title>
+    <style>
+
+        html{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+        }
+        body{
+            background-color: rgb(73, 128, 209);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .container{
+            background-color: whitesmoke;
+            min-width: 50%;
+            min-height: 50vh;
+            padding: 1rem;
+            border-radius: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #form{
+            min-width: 100%;
+        }
+
+        .form-item{
+            margin: 1rem;
+        }
+
+        #name{
+            min-width: 50%;
+            min-height: 1.5rem;
+        }
+        #message{
+            min-width: 80%;
+            min-height: 20vh;
+        }
+
+        #submit {
+            background-color: #008CBA; 
+            border: none;
+            color: white;
+            padding: .5rem 1rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 1rem;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form  id="form"  onsubmit="return sendMessage(event)">
+            <div  class="form-item">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div  class="form-item">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" re></textarea>
+            </div>
+            <div  class="form-item">
+                <input type="submit" id="submit" value="Send">
+            </div>
+            <div id="info"> </div>
+        </form>
+
+        
+    </div>
+   
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let socket = io();  
+
+        function sendMessage(event){
+            event.preventDefault(); 
+
+            let name = document.getElementById("name").value;
+            let msg = document.getElementById("message").value;
+            document.getElementById("name").value = "";
+            document.getElementById("message").value = "";
+
+
+           
+            
+            // send message to the server
+            let msgObjet = {"name":name,"message":msg};
+            //console.log(msgObjet);
+            socket.emit('message',msgObjet);
+
+            return false;
+        }
+
+
+        socket.on('message', (msg) => {
+            msg = msg[0];
+            document.getElementById("info").innerHTML = `"${msg.message}" from ${msg.name} saved in ChatLog`;
+        })
+    </script>
+    
+</body>
+</html>
